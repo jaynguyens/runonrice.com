@@ -1,0 +1,246 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-mono: "Space Mono", ui-monospace, monospace;
+  --color-accent: #3ba6f1;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    letter-spacing: -0.5px;
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: white;
+  }
+
+  .inline-link {
+    text-decoration: none;
+    position: relative;
+    transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .inline-link::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .inline-link:hover {
+    color: var(--color-accent);
+  }
+
+  .inline-link:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+/* Entrance animation */
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-enter {
+  opacity: 0;
+  animation: enter 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Status dot pulse */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.pulse-dot {
+  position: relative;
+}
+
+.pulse-dot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: var(--color-accent);
+  animation: pulse-ring 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.group:hover .pulse-dot::before {
+  animation: none;
+  opacity: 0;
+}
+
+/* Clock digit tick */
+@keyframes digit-tick {
+  0% {
+    transform: translateY(30%);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.clock-digit {
+  display: inline-block;
+}
+
+.clock-digit.tick {
+  animation: digit-tick 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Arrow nudge */
+.arrow-nudge {
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .arrow-nudge {
+  transform: translateX(4px);
+}
+
+/* "More in the works" shimmer */
+@keyframes shimmer {
+  0%, 100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+.shimmer-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(168, 162, 158, 0.07) 50%,
+    transparent 100%
+  );
+  animation: shimmer 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Card glow */
+.card-glow {
+  --glow-x: 0px;
+  --glow-y: 0px;
+  --glow-opacity: 0;
+}
+
+.card-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    250px circle at var(--glow-x) var(--glow-y),
+    rgba(59, 166, 241, 0.07) 0%,
+    transparent 100%
+  );
+  opacity: var(--glow-opacity);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* "More in the works" breathing border */
+@keyframes breathe {
+  0%, 100% { border-color: var(--color-stone-300); }
+  50% { border-color: var(--color-stone-400); }
+}
+
+.animate-breathe {
+  animation: breathe 3s ease-in-out infinite;
+}
+
+/* Clock colon blink */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.clock-colon {
+  animation: blink 1s step-end infinite;
+}
+
+/* Header text shimmer */
+@keyframes text-shimmer {
+  from { background-position: 100% center; }
+  to { background-position: 0% center; }
+}
+
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    #000 35%,
+    var(--color-accent) 50%,
+    #000 65%
+  );
+  background-size: 250% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shimmer 1.5s ease-in-out 0.7s 1;
+}
+
+.text-shimmer::selection {
+  -webkit-text-fill-color: white;
+}
+
+/* Favicon float */
+@keyframes favicon-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+.favicon-float {
+  animation: favicon-float 3s ease-in-out infinite;
+}
+
+/* Magnetic links */
+.magnetic {
+  display: inline-block;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Accessibility: respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

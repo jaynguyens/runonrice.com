@@ -1,0 +1,210 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+---
+
+<Layout>
+  <!-- Header -->
+  <header class="mb-12 animate-enter">
+    <h1 class="text-shimmer text-lg font-bold tracking-wide">RUNONRICE</h1>
+    <span class="text-[13px] text-stone-400">/rʌn.ɒn.raɪs/</span>
+  </header>
+
+  <!-- Main grid: About | Projects -->
+  <main class="grid grid-cols-1 gap-12 lg:grid-cols-2 animate-enter" style="animation-delay: 80ms">
+    <!-- ABOUT -->
+    <section>
+      <h2 class="mb-4 text-sm text-stone-400">ABOUT</h2>
+      <div class="text-sm leading-relaxed text-stone-800">
+        <p>
+          Solo dev studio. I believe the best software comes from small
+          teams who use what they build &mdash; people who care about the
+          details because they live with them every day. Not because a
+          ticket told them to, but because something felt off and they
+          couldn&rsquo;t leave it alone.
+        </p>
+        <p class="mt-4">
+          Inspired by
+          <span class="inline-block align-text-bottom favicon-float"><img src="https://linear.app/favicon.ico" alt="Linear" class="h-4 w-4 transition-transform duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-125" /></span>
+          <span class="inline-block align-text-bottom favicon-float" style="animation-delay: 0.5s"><img src="https://culturedcode.com/favicon.ico" alt="Things" class="h-4 w-4 transition-transform duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-125" /></span>
+          <span class="inline-block align-text-bottom favicon-float" style="animation-delay: 1s"><img src="https://raycast.com/favicon-production.png" alt="Raycast" class="h-4 w-4 rounded transition-transform duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-125" /></span>
+          &mdash; less, done well, is always enough.
+        </p>
+        <p class="mt-4 text-stone-500">
+          Got an interesting idea? I&rsquo;d love to
+          <a href="mailto:hello@runonrice.com" class="inline-link">hear about it</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section>
+      <h2 class="mb-4 text-sm text-stone-400">PROJECTS</h2>
+      <div class="rounded-lg bg-stone-100 p-1.5">
+        <!-- Membo -->
+        <a href="https://membo.runonrice.com" class="card-glow group relative block rounded-lg border border-stone-200 bg-white p-4 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-md hover:border-stone-300">
+          <div class="flex items-center gap-2">
+            <span class="pulse-dot inline-block h-2 w-2 rounded-full bg-[#3ba6f1] transition-transform duration-300 group-hover:scale-150"></span>
+            <span class="text-sm font-bold transition-colors duration-200 group-hover:text-[#3ba6f1]">Membo</span>
+            <span class="ml-auto text-sm text-stone-300 arrow-nudge transition-colors duration-200 group-hover:text-stone-400">&rarr;</span>
+          </div>
+          <p class="mt-1.5 text-[13px] text-stone-500">AI flashcards that actually work</p>
+        </a>
+
+        <!-- More in the works -->
+        <div class="shimmer-card mt-1.5 flex items-center gap-2 rounded-lg border border-dashed border-stone-300 p-4 animate-breathe">
+          <svg class="h-4 w-4 text-stone-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="6" cy="6" r="3" /><path d="M8.12 8.12 12 12" /><path d="M20 4 8.12 15.88" /><circle cx="6" cy="18" r="3" /><path d="M14.8 14.8 20 20" />
+          </svg>
+          <span class="text-sm italic text-stone-400">More in the works</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- TEAM -->
+  <section class="mt-12 animate-enter" style="animation-delay: 160ms">
+    <h2 class="mb-4 text-sm text-stone-400">TEAM</h2>
+    <div class="flex items-start gap-4">
+      <!-- Jay -->
+      <div class="w-28">
+        <div class="group rotate-[-0.8deg] overflow-hidden rounded border-4 border-stone-100 bg-white shadow-md transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:rotate-0 hover:shadow-xl">
+          <img
+            src="/jay.jpg"
+            alt="Jay Nguyen"
+            class="aspect-4/5 w-full object-cover"
+          />
+        </div>
+        <div class="mt-2">
+          <p class="text-sm font-medium">Jay Nguyen</p>
+          <div class="mt-1 flex gap-3 text-[13px] text-stone-400">
+            <a href="mailto:jay@nguyens.co" class="inline-link magnetic">Email</a>
+            <a href="https://github.com/jaynguyens" class="inline-link magnetic">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom row: Based In | Contact -->
+  <div class="mt-12 grid grid-cols-1 gap-12 sm:grid-cols-2 animate-enter" style="animation-delay: 240ms">
+    <!-- BASED IN -->
+    <section>
+      <h2 class="mb-3 text-sm text-stone-400">BASED IN</h2>
+      <p class="text-sm">
+        West Sussex, UK &middot; <span id="clock" class="text-stone-500"></span>
+      </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section>
+      <h2 class="mb-3 text-sm text-stone-400">CONTACT</h2>
+      <div class="space-y-1 text-sm">
+        <p><span class="text-stone-400">&mdash;</span> <a href="mailto:hello@runonrice.com" class="inline-link magnetic">Email</a></p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-auto ml-auto pt-16 animate-enter" style="animation-delay: 320ms">
+    <p class="text-[13px] text-stone-400">
+      <span>&copy;</span> RUNONRICE 2026
+    </p>
+  </footer>
+</Layout>
+
+<script>
+  const ease = "cubic-bezier(0.16, 1, 0.3, 1)";
+
+  // Card glow + tilt
+  document.querySelectorAll(".card-glow").forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -2;
+      const rotateY = ((x - centerX) / centerX) * 2;
+
+      card.style.setProperty("--glow-x", `${x}px`);
+      card.style.setProperty("--glow-y", `${y}px`);
+      card.style.setProperty("--glow-opacity", "1");
+      card.style.transition = `box-shadow 0.3s ${ease}, border-color 0.3s ${ease}`;
+      card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.setProperty("--glow-opacity", "0");
+      card.style.transition = `all 0.3s ${ease}`;
+      card.style.transform = "";
+    });
+  });
+
+  // Magnetic links
+  document.querySelectorAll(".magnetic").forEach((link) => {
+    link.addEventListener("mousemove", (e) => {
+      const rect = link.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const deltaX = (e.clientX - centerX) * 0.15;
+      const deltaY = (e.clientY - centerY) * 0.15;
+      link.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+    });
+
+    link.addEventListener("mouseleave", () => {
+      link.style.transform = "";
+    });
+  });
+
+  // Clock with digit transitions
+  let prevDigits = "";
+
+  function updateClock() {
+    const now = new Date();
+    const time = now.toLocaleTimeString("en-GB", {
+      timeZone: "Europe/London",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    });
+
+    const el = document.getElementById("clock");
+    if (!el) return;
+
+    const digits = time.replace(/:/g, "");
+
+    if (!prevDigits) {
+      let html = "";
+      for (let i = 0; i < time.length; i++) {
+        if (time[i] === ":") {
+          html += '<span class="clock-colon">:</span>';
+        } else {
+          html += `<span class="clock-digit">${time[i]}</span>`;
+        }
+      }
+      html += " BST";
+      el.innerHTML = html;
+    } else {
+      const digitSpans = el.querySelectorAll(".clock-digit");
+      let digitIndex = 0;
+      for (let i = 0; i < time.length; i++) {
+        if (time[i] !== ":") {
+          if (digits[digitIndex] !== prevDigits[digitIndex]) {
+            const span = digitSpans[digitIndex];
+            span.textContent = time[i];
+            span.classList.remove("tick");
+            void span.offsetWidth;
+            span.classList.add("tick");
+          }
+          digitIndex++;
+        }
+      }
+    }
+
+    prevDigits = digits;
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000);
+</script>
