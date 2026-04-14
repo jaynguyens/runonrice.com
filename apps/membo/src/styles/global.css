@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+html,
+body {
+  font-family: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.inline-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+.inline-link:hover {
+  color: #3ba6f1;
+}
